@@ -7,11 +7,10 @@ type StoreType = ReturnType<typeof createStore>;
 
 const wrapComponentIntoRedux = (
   WrappedComponent: React.FC,
-  store?: StoreType
+  store: StoreType = AppStore
 ): React.ReactElement => {
-  const nStore = store || AppStore;
   return (
-    <Provider store={nStore}>
+    <Provider store={store}>
       <WrappedComponent />
     </Provider>
   );
