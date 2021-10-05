@@ -3,6 +3,20 @@
   "version": "1.0.0",
   "description": "a template",
   "main": "index.js",
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "bash -c tsc --noEmit",
+      "organize-imports-cli",
+      "prettier --write",
+      "eslint --cache --fix"
+    ],
+    "*.{js,jsx}": [
+      "organize-imports-cli",
+      "prettier --write",
+      "eslint --cache --fix"
+    ],
+    "*.{css,md}": "prettier --write"
+  },
   "scripts": {
     "test": "jest --config jest.config.ts",
     "dev": "webpack s -c ./build/dev.config.ts",
@@ -77,6 +91,7 @@
     "jest": "^27.0.4",
     "less": "^4.1.1",
     "less-loader": "^8.1.1",
+    "lint-staged": "^12.3.5",
     "prettier": "^2.2.1",
     "storybook-less-loader": "^0.1.0",
     "style-loader": "^2.0.0",
@@ -89,5 +104,8 @@
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
+  },
+  "wallaby": {
+    "__DEV__": true
   }
 }

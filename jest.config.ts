@@ -4,7 +4,6 @@ import type { Config } from '@jest/types';
 // Sync object
 const config: Config.InitialOptions = {
   verbose: true,
-  roots: ['src'],
   transform: {
     '^.+\\.(ts|tsx|js|jsx)$': 'ts-jest',
   },
@@ -16,7 +15,17 @@ const config: Config.InitialOptions = {
     setupFilesAfterEnv: ['jest-extended'],
   },
   setupFilesAfterEnv: ['<rootDir>/jestSetupTests.ts'],
-  testEnvironment:'jsdom'
+  testEnvironment: 'jsdom',
+  globals: {
+    __DEV__: true,
+    __TEST__: true,
+    __VERSION__: require('./package.json').version,
+  },
+  coverageDirectory: 'coverage',
+  coverageReporters: ['html', 'lcov', 'text'],
+  watchPathIgnorePatterns: ['/node_modules/', '/dist/', '/.git/'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
+  rootDir: __dirname,
 };
 
 export default config;

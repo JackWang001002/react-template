@@ -8,11 +8,9 @@ describe('home', () => {
   it('should render ', () => {
     const { container } = render(wrapComponentIntoRedux(Home));
     const counter = getByTestId(container, 'counter');
-    // screen.debug(counter);
     expect(counter).toHaveTextContent('0');
     const addBtn = getByTestId(container, 'add-btn');
     fireEvent.click(addBtn);
     expect(counter).toHaveTextContent('1');
-    // screen.debug(counter);
   });
 });
