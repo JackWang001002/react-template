@@ -5,7 +5,7 @@
   "main": "index.js",
   "lint-staged": {
     "*.{ts,tsx}": [
-      "bash -c tsc --noEmit",
+      "bash -c 'tsc  --project . --noEmit'",
       "organize-imports-cli",
       "prettier --write",
       "eslint --cache --fix"
