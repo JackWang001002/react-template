@@ -19,13 +19,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'react-hooks'],
   rules: {
-    indent: [
-      'error',
-      2,
-      {
-        SwitchCase: 1,
-      },
-    ],
+    indent: 'off', //use 'prettier' to indent
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
@@ -41,5 +35,6 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-react': 'off',
   },
 };
