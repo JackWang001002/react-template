@@ -22,6 +22,8 @@
     "dev": "webpack s -c ./build/dev.config.ts",
     "build": "webpack -c ./build/prd.config.ts",
     "prepare": "husky install",
+    "watchtype": "tsc --noEmit --project . --watch",
+
     "pub": "npm version patch && npm publish ",
     "next": "npm version patch && npm publish --tag=next ",
     "cp": "zx",
